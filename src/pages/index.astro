@@ -1,6 +1,14 @@
 ---
 // Esto se ejecutara solamente en desarrollo
-console.log('Solamente en desarrollo');
+console.log("Solamente en desarrollo");
+
+// Aquí podriamos traer datos de un servidor
+// o otro sitio y poderlos convertir a html o
+// una nueva página
+const title = "My Project in Astro!";
+const color = "title warning";
+const hobbies = ["Develop", "Read", "Write", "Show Movies"];
+const active = false;
 ---
 
 <html lang="es">
@@ -9,20 +17,35 @@ console.log('Solamente en desarrollo');
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1 class="title">Astro</h1>
+		<h1 class={color}>Astro</h1>
 		<a href="/about">About</a>
+		<p>{active ? "Active" : "Desactive"}</p>
+		<!-- TODO: Prestar atención a esto -->
+		<ol>
+			{hobbies.map((hobbie) => <li>{hobbie}</li>)}
+		</ol>
+		<ul>
+			{
+				hobbies.map(function (hobbie) {
+					return <li>{hobbie}</li>;
+				})
+			}
+		</ul>
 	</body>
 </html>
 
 <script>
-	console.log('Hi!');
+	console.log("Hi!");
 </script>
 
 <style>
 	.title {
 		font-family: sans-serif;
+	}
+	.warning {
+		color: orange;
 	}
 </style>
