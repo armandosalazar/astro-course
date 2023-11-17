@@ -1,0 +1,30 @@
+---
+interface Props {
+    title: string;
+    id?: number; // ? = es opcional
+    body: string;
+}
+
+const { title, id = undefined, body } = Astro.props; // valor por defecto
+
+console.log(Astro.props);
+---
+
+<div class="card">
+    <h2>{title}^{id}</h2>
+    <p>{body}</p>
+</div>
+
+<style>
+    .card {
+        background-color: #fff;
+        color: #202020;
+        border-radius: 5px;
+        box-shadow:
+            0 2px 4px 0 rgba(0, 0, 0, 0.2),
+            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 50%;
+        margin: 50px auto;
+    }
+</style>
