@@ -9,51 +9,46 @@ const title = "My Project in Astro!";
 const color = "title warning";
 const hobbies = ["Develop", "Read", "Write", "Show Movies"];
 const isActive = false;
+
+// TODO: Layours
+
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1 class={color}>Astro</h1>
-		<a href="/about">About</a>
-		<a href="/blog/how-make-things">Compleje route</a>
-		<p>{isActive ? "Active" : "Desactive"}</p>
+<Layout>
+	<h1 class={color}>Astro</h1>
+	<a href="/about">About</a>
+	<a href="/blog/how-make-things">Compleje route</a>
+	<p>{isActive ? "Active" : "Desactive"}</p>
 
-		<!-- && -->
-		<h3 class={color}>
-			{isActive && "El usuario esta activo"}
-			{!isActive && "El usuario esta desactivo"}
-		</h3>
+	<!-- && -->
+	<h3 class={color}>
+		{isActive && "El usuario esta activo"}
+		{!isActive && "El usuario esta desactivo"}
+	</h3>
 
-		<!-- TODO: Prestar atención a esto -->
-		<ol>
-			{hobbies.map((hobbie) => <li>{hobbie}</li>)}
-		</ol>
-		<ul>
-			{
-				hobbies.map(function (hobbie) {
-					return <li>{hobbie}</li>;
-				})
-			}
-		</ul>
-	</body>
-</html>
+	<!-- TODO: Prestar atención a esto -->
+	<ol>
+		{hobbies.map((hobbie) => <li>{hobbie}</li>)}
+	</ol>
+	<ul>
+		{
+			hobbies.map(function (hobbie) {
+				return <li>{hobbie}</li>;
+			})
+		}
+	</ul>
 
-<script>
-	console.log("Hi!");
-</script>
+	<script>
+		console.log("Hi!");
+	</script>
 
-<style>
-	.title {
-		font-family: sans-serif;
-	}
-	.warning {
-		color: orange;
-	}
-</style>
+	<style>
+		.title {
+			font-family: sans-serif;
+		}
+		.warning {
+			color: orange;
+		}
+	</style>
+</Layout>

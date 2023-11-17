@@ -1,0 +1,38 @@
+---
+interface Props {
+    pageTitle?: string;
+    pageDescription?: string;
+}
+
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Armando Salazar {pageTitle && " | " + pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+    </head>
+    <body>
+        <header>
+            Armando Salazar
+            <nav>
+                <ul>
+                    <a href="/">Home</a>
+                    <a href="/posts">Posts</a>
+                </ul>
+            </nav>
+        </header>
+        <slot />
+    </body>
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+</style>
