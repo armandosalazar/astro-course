@@ -8,7 +8,7 @@ console.log("Solamente en desarrollo");
 const title = "My Project in Astro!";
 const color = "title warning";
 const hobbies = ["Develop", "Read", "Write", "Show Movies"];
-const active = false;
+const isActive = false;
 ---
 
 <html lang="es">
@@ -22,7 +22,15 @@ const active = false;
 	<body>
 		<h1 class={color}>Astro</h1>
 		<a href="/about">About</a>
-		<p>{active ? "Active" : "Desactive"}</p>
+		<a href="/blog/how-make-things">Compleje route</a>
+		<p>{isActive ? "Active" : "Desactive"}</p>
+
+		<!-- && -->
+		<h3 class={color}>
+			{isActive && "El usuario esta activo"}
+			{!isActive && "El usuario esta desactivo"}
+		</h3>
+
 		<!-- TODO: Prestar atención a esto -->
 		<ol>
 			{hobbies.map((hobbie) => <li>{hobbie}</li>)}
